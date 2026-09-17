@@ -1,6 +1,7 @@
 #Name: Aerin Kim
 #Date: 9/16/26
 #Generative AI Statement: This assignment was assisted by ChatGPT-5.6 Luna on September 16, 2026. ChatGPT-5.6 Luna was used to explain the following concepts: class methods, instance methods, and how to create a class that can read data from a CSV file and create objects based on that data. I used the explanations provided by ChatGPT-5.6 Luna to help me understand these concepts and apply them to my code. The work from the class example was also applied here.
+
 from patient_Aerin import *
 import matplotlib.pyplot as plt
 from scipy import stats
@@ -103,7 +104,7 @@ print(
     f"Male standard deviation = {male_stdev}"
 )
 
-# Define graph information
+# Define graph information; this code will create a bar graph that compares the mean age of onset of cognitive symptoms in female and male patients with dementia. The error bars represent the standard deviation of the age of onset for each sex.
 sex_labels = ["Female", "Male"]
 
 mean_age_onset = [

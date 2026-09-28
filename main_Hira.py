@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy import stats
 
 from patient_Hira import Patient
 
@@ -75,6 +76,9 @@ male_mean = np.mean(male_abeta)
 female_std = np.std(female_abeta, ddof=1)
 male_std = np.std(male_abeta, ddof=1)
 
+t_stat, p_val = stats.ttest_ind(female_abeta, male_abeta)
+print("t-stat =", t_stat, "p-value =", p_val)
+
 
 # bar graph
 groups = ["Female", "Male"]
@@ -86,6 +90,12 @@ plt.bar(groups, means, yerr=stds, capsize=5)
 plt.xlabel("Sex")
 plt.ylabel("ABeta42 (pg/ug)")
 plt.title("Mean ABeta42 in Patients with Dementia")
+plt.text(
+    0.5,
+    360,
+    f"t = {t_stat:.2f}\np = {p_val:.3e}",
+    ha="center"
+)
 
 plt.savefig("Hira_bar_graph.png")
 plt.show()

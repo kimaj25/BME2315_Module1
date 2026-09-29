@@ -57,7 +57,8 @@ class Patient:
     # Class method to create Patient objects from CSV
     @classmethod
     def instantiate_from_csv(cls, filename: str):
-
+        # Clear the list of all patients before adding new ones from the CSV file (keep the patient total from accumulating with each run)
+        cls.all_patients.clear()
         # Open the CSV file
         with open(filename, encoding="utf8") as f:
             reader = csv.DictReader(f)
